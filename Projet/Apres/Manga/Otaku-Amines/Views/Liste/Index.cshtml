@@ -1,0 +1,73 @@
+﻿@model Otaku_Amines.Models.ListeViewModels
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@{ 
+
+    foreach (var list in Model.ListAnimes)
+    {
+        <div class="card mb-3" style="max-width: 1000px; margin:5em">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="~/image/@list.Image" class="card-img image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h1 class="card-title"> @Html.ActionLink(@list.Nom, "Streaming", "Steaming", new { Nom = @list.Nom, Chiffre = 0 }, null) </h1>
+                        <p class="card-text">@list.Genres</p>
+                        <p class="card-text"><small class="text-muted">@list.Synopsis</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    using (Html.BeginForm("ButtonPressed", "Liste", FormMethod.Post))
+    {
+        <h3 class="text-center">
+            <input type="submit" name="magicButton" value="0" />
+            <input type="submit" name="magicButton" value="A" />
+            <input type="submit" name="magicButton" value="B" />
+            <input type="submit" name="magicButton" value="C" />
+            <input type="submit" name="magicButton" value="D" />
+            <input type="submit" name="magicButton" value="E" />
+            <input type="submit" name="magicButton" value="F" />
+            <input type="submit" name="magicButton" value="G" />
+            <input type="submit" name="magicButton" value="H" />
+            <input type="submit" name="magicButton" value="I" />
+            <input type="submit" name="magicButton" value="J" />
+            <input type="submit" name="magicButton" value="K" />
+            <input type="submit" name="magicButton" value="L" />
+            <input type="submit" name="magicButton" value="M" />
+            <input type="submit" name="magicButton" value="N" />
+            <input type="submit" name="magicButton" value="O" />
+            <input type="submit" name="magicButton" value="P" />
+            <input type="submit" name="magicButton" value="Q" />
+            <input type="submit" name="magicButton" value="R" />
+            <input type="submit" name="magicButton" value="S" />
+            <input type="submit" name="magicButton" value="T" />
+            <input type="submit" name="magicButton" value="U" />
+            <input type="submit" name="magicButton" value="V" />
+            <input type="submit" name="magicButton" value="W" />
+            <input type="submit" name="magicButton" value="X" />
+            <input type="submit" name="magicButton" value="Y" />
+            <input type="submit" name="magicButton" value="Z" />
+        </h3>
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+

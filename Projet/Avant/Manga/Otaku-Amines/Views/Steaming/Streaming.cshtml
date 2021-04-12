@@ -1,0 +1,197 @@
+﻿
+@{
+
+
+    ViewBag.Title = "Streaming";
+}
+@using DAL;
+<h2>Streaming</h2>
+@{string Lettre = (string)ViewData["value"];
+    int Chiffre = (int)ViewData["Chiffre"];
+    int idS = 0;
+
+
+    var result1 = (from Ta in (ViewData["data"] as List<Episode>)
+                   where Ta.Num_Episode.Contains(Lettre) && Ta.Id > Chiffre
+                   orderby Ta.Num_Episode
+                   select Ta).Take(4);
+
+    var IdMax = (from Ta in (ViewData["data"] as List<Episode>)
+                 where Ta.Num_Episode.Contains(Lettre)
+                 orderby Ta.Num_Episode
+                 select Ta.Id).Max();
+
+    var IdMin = (from Ta in (ViewData["data"] as List<Episode>)
+                 where Ta.Num_Episode.Contains(Lettre)
+                 orderby Ta.Num_Episode
+                 select Ta.Id).Min();
+
+    var liste = (from Ta in (ViewData["data"] as List<Episode>)
+                 where Ta.Num_Episode.Contains(Lettre)
+                 orderby Ta.Num_Episode
+                 select Ta);
+
+
+    Boolean s1 = true;
+    Boolean s3 = false;
+    Boolean s4 = false;
+    Boolean s5 = false;
+    Boolean autre = true;
+
+
+
+
+    <div class="navbar-left">
+
+        @foreach (var Episode in liste)
+        {
+
+            if (Episode.Num_Episode.Contains("S1") && s1 == true)
+            {
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        Saison 1
+                    </button>
+
+                    <ul class="dropdown-menu pre-scrollable">
+                        @foreach (var saison1 in liste)
+                        {
+                            if (saison1.Num_Episode.Contains("S1"))
+                            {
+                                <li>@Html.ActionLink(saison1.Num_Episode.Replace("S1", ""), "Streaming", "Steaming", new { Nom = Lettre, Chiffre = saison1.Id - 1 }, null)</li>
+                            }
+
+                        }
+                    </ul>
+                </div>
+                s1 = false;
+                autre = false;
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        Saison 2
+                    </button>
+                    <ul class="dropdown-menu pre-scrollable">
+                        @foreach (var saison2 in liste)
+                        {
+                            if (saison2.Num_Episode.Contains("S2"))
+                            {
+                                <li> @Html.ActionLink(saison2.Num_Episode.Replace("S2", ""), "Streaming", "Steaming", new { Nom = Lettre, Chiffre = saison2.Id - 1 }, null) </li>
+
+
+                            }
+                            if (saison2.Num_Episode.Contains("S3")) { s3 = true; break; }
+                        }
+                    </ul>
+                </div>
+                if (s3 == true)
+                {
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            Saison 3
+                        </button>
+                        <ul class="dropdown-menu pre-scrollable">
+                            @foreach (var saison3 in liste)
+                            {
+                                if (saison3.Num_Episode.Contains("S3"))
+                                {
+                                    <li> @Html.ActionLink(saison3.Num_Episode.Replace("S3", ""), "Streaming", "Steaming", new { Nom = Lettre, Chiffre = saison3.Id - 1 }, null) </li>
+
+                                }
+                                if (saison3.Num_Episode.Contains("S4")) { s4 = true; break; }
+                            }
+
+                        </ul>
+
+                    </div>
+                    s3 = false;
+                }
+                if (s4 == true)
+                {
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            Saison 4
+                        </button>
+                        <ul class="dropdown-menu pre-scrollable">
+                            @foreach (var saison4 in liste)
+                            {
+                                if (saison4.Num_Episode.Contains("S4"))
+                                {
+                                    <li> @Html.ActionLink(saison4.Num_Episode.Replace("S4", ""), "Streaming", "Steaming", new { Nom = Lettre, Chiffre = saison4.Id - 1 }, null) </li>
+
+
+                                }
+                                if (saison4.Num_Episode.Contains("S5")) { s5 = true; }
+
+                            }
+
+                        </ul>
+                    </div>
+                    s4 = false;
+                }
+                if (s5 == true)
+                {
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            Saison 5
+                        </button>
+                        <ul class="dropdown-menu pre-scrollable">
+                            @foreach (var saison5 in liste)
+                            {
+                                if (saison5.Num_Episode.Contains("S5"))
+                                {
+                                    <li> @Html.ActionLink(saison5.Num_Episode.Replace("S5", ""), "Streaming", "Steaming", new { Nom = Lettre, Chiffre = saison5.Id - 1 }, null) </li>
+
+
+                                }
+
+
+                            }
+
+                        </ul>
+                    </div>
+                    s5 = false;
+                }
+
+            }
+
+            if (autre == true)
+            {
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        épisode
+
+                    </button>
+                    <ul class="dropdown-menu pre-scrollable">
+                        @foreach (var autres in liste)
+                        {
+                            <li>@Html.ActionLink(autres.Num_Episode, "Streaming", "Steaming", new { Nom = Lettre, Chiffre = autres.Id - 1 }, null)</li>
+                        }
+
+                    </ul>
+
+                </div>
+                autre = false;
+            }
+        }
+
+    </div>
+
+    foreach (var list in result1)
+    {
+        <h1 class="text-center"> @list.Num_Episode</h1>
+        <div class="text-center"> <Iframe src="@list.lien" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen> </Iframe></div>
+
+        idS = @list.Id;
+    }
+
+
+    if (idS < IdMax)
+    { <div style="text-align:right">
+            @Html.ActionLink("Page suivant", "Streaming", "Steaming", new { Nom = Lettre, Chiffre = idS }, null)
+        </div>}
+    if (Chiffre > IdMin)
+    {<div style="text-align:left">
+            @Html.ActionLink("Page precedent", "Streaming", "Steaming", new { Nom = Lettre, Chiffre = Chiffre - 4 }, null)
+        </div>}
+
+}

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+@using DAL;
+@{string search = (string)ViewData["value"];
+
+    var result1 = from Ta in (ViewData["data"] as List<Animes>)
+                  where Ta.Nom.ToLower().Contains(search.ToLower())
+                  orderby Ta.Nom
+                  select Ta;
+
+    foreach (var list in result1)
+    {
+        <h2>
+            @Html.ActionLink(@list.Nom, "Streaming", "Steaming", new { Nom = @list.Nom, Chiffre = 0 }, null)
+            <img class="image" src="~/image/@list.Image" />
+        </h2>
+        <div>@list.Genres</div>
+        <p class="synopsis">@list.Synopsis</p>
+
+    }
+}
+
+

@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6ACFE782-A94F-444A-A2CD-E8580624781F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Otaku_Amines</RootNamespace>
+    <AssemblyName>Otaku-Amines</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SteamingController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="image\07 Ghost.jpg" />
+    <Content Include="image\11 Eyes.jpg" />
+    <Content Include="image\Absolute Duo.jpg" />
+    <Content Include="image\Active Raid - Kidou Kyoushuushitsu Dai-Hakkei.jpg" />
+    <Content Include="image\AIKa R-16 - Virgin Mission.jpg" />
+    <Content Include="image\Air Gear.jpg" />
+    <Content Include="image\Akane-Iro ni Somaru Saka.jpg" />
+    <Content Include="image\Akikan!.jpg" />
+    <Content Include="image\Akuma no Riddle.jpg" />
+    <Content Include="image\Amagi Brilliant Park.jpg" />
+    <Content Include="image\Amatsuki.jpg" />
+    <Content Include="image\Ange Vierge.jpg" />
+    <Content Include="image\Angel Beats.jpg" />
+    <Content Include="image\Another.jpg" />
+    <Content Include="image\Ao No Exorcist.jpg" />
+    <Content Include="image\Ao no Kanata no Four Rhythm.jpg" />
+    <Content Include="image\Aoharu x Kikanjuu.jpg" />
+    <Content Include="image\Aoi sekai no chuushin de.jpg" />
+    <Content Include="image\Asa made jugyou chu!.jpg" />
+    <Content Include="image\Asobi Ni Iku Yo!.jpg" />
+    <Content Include="image\Assassination Classroom.jpg" />
+    <Content Include="image\Asura Cryin%27.jpg" />
+    <Content Include="image\Avatar Le Dernier Maitre De L%27air.jpg" />
+    <Content Include="image\Ayakashi.jpg" />
+    <Content Include="image\Baka To Test To Shoukanjuu.jpg" />
+    <Content Include="image\Bakuretsu Tenshi.jpg" />
+    <Content Include="image\Ben-To.jpg" />
+    <Content Include="image\Berserk.jpg" />
+    <Content Include="image\Big Order.jpg" />
+    <Content Include="image\Black Bullet.jpg" />
+    <Content Include="image\Black Butler.jpg" />
+    <Content Include="image\Black Rock Shooter.jpg" />
+    <Content Include="image\Blade and Soul.jpg" />
+    <Content Include="image\Blassreiter.jpg" />
+    <Content Include="image\Bleach.jpg" />
+    <Content Include="image\Blood Lad.jpg" />
+    <Content Include="image\Blood-C.jpg" />
+    <Content Include="image\Bloodivores.jpg" />
+    <Content Include="image\Boku no Hero Academia.jpg" />
+    <Content Include="image\Boku Wa Tomodachi Ga Sukunai.jpg" />
+    <Content Include="image\Brave 10.jpg" />
+    <Content Include="image\Brotherhood Final Fantasy XV.jpg" />
+    <Content Include="image\Btoom.jpg" />
+    <Content Include="image\Bubuki Buranki.jpg" />
+    <Content Include="image\Buddy Complex.jpg" />
+    <Content Include="image\Bungô Stray Dogs.jpg" />
+    <Content Include="image\Busou Renkin.jpg" />
+    <Content Include="image\C – Control.jpg" />
+    <Content Include="image\c3.jpg" />
+    <Content Include="image\Campione.jpg" />
+    <Content Include="image\Canaan.jpg" />
+    <Content Include="image\Candy Boy.jpg" />
+    <Content Include="image\Chain Chronicle.jpg" />
+    <Content Include="image\Chaos Child.jpg" />
+    <Content Include="image\Chaos Dragon.jpg" />
+    <Content Include="image\Chaos Head.jpg" />
+    <Content Include="image\Charlotte.jpg" />
+    <Content Include="image\Chobits.jpg" />
+    <Content Include="image\Choujigen Game Neptune The Animation.jpg" />
+    <Content Include="image\Chu Feng B.E.E.jpg" />
+    <Content Include="image\Chuu Bra!!.jpg" />
+    <Content Include="image\Chuunibyou Demo Koi Ga Shitai.jpg" />
+    <Content Include="image\Clannad.jpg" />
+    <Content Include="image\Claymore.jpg" />
+    <Content Include="image\Code Breaker.jpg" />
+    <Content Include="image\Code Geass.jpg" />
+    <Content Include="image\Comet Lucifer.jpg" />
+    <Content Include="image\Concrete Revolutio Choujin Gensou.jpg" />
+    <Content Include="image\Corpse Party Tortured Souls.jpg" />
+    <Content Include="image\Crescent Love.jpg" />
+    <Content Include="image\Cross Ange.jpg" />
+    <Content Include="image\D Frag!.jpg" />
+    <Content Include="image\D Gray Man.jpg" />
+    <Content Include="image\Dagashi Kashi.jpg" />
+    <Content Include="image\Daitoshokan no Hitsujikai.jpg" />
+    <Content Include="image\Dakara Boku Wa, H Ga Dekinai.jpg" />
+    <Content Include="image\Dance in the Vampire Bund.jpg" />
+    <Content Include="image\DanganRonpa  The Animation.jpg" />
+    <Content Include="image\DanMachi.jpg" />
+    <Content Include="image\Dansai Bunri no Crime Edge.jpg" />
+    <Content Include="image\Dantalian No Shoka.jpg" />
+    <Content Include="image\Date A Live.jpg" />
+    <Content Include="image\Deadman Wonderland.jpg" />
+    <Content Include="image\Death Note.jpg" />
+    <Content Include="image\Death Parade.jpg" />
+    <Content Include="image\Demonbane.jpg" />
+    <Content Include="image\Denpa Kyoushi.jpg" />
+    <Content Include="image\Densetsu No Yuusha No Densetsu.jpg" />
+    <Content Include="image\Devil May Cry.jpg" />
+    <Content Include="image\Devil Survivor 2.jpg" />
+    <Content Include="image\Divine Gate.jpg" />
+    <Content Include="image\Dog Days.jpg" />
+    <Content Include="image\Dragon Crisis.jpg" />
+    <Content Include="image\Dragonaut - The Resonance.jpg" />
+    <Content Include="image\DRAMAtical Murder.jpg" />
+    <Content Include="image\Elfen Lied.jpg" />
+    <Content Include="image\Elsword.jpg" />
+    <Content Include="image\Endride.jpg" />
+    <Content Include="image\Enfer Et Paradis.jpg" />
+    <Content Include="image\Etotama.jpg" />
+    <Content Include="image\Fairy Tail.jpg" />
+    <Content Include="image\FateStay Night.jpg" />
+    <Content Include="image\Fight Ippatsu! Juuden-Chan!!.jpg" />
+    <Content Include="image\Flying Witch.jpg" />
+    <Content Include="image\Fortune Arterial.jpg" />
+    <Content Include="image\Freezing.jpg" />
+    <Content Include="image\Fuuka.jpg" />
+    <Content Include="image\Ga-Rei Zero.jpg" />
+    <Content Include="image\Gakusen Toshi Asterisk.jpg" />
+    <Content Include="image\Galilei Donna.jpg" />
+    <Content Include="image\Gatchaman Crowds.jpg" />
+    <Content Include="image\Gate.jpg" />
+    <Content Include="image\Ginga Kikoutai Majestic Prince.jpg" />
+    <Content Include="image\God Eater.jpg" />
+    <Content Include="image\Goshuushou-sama Ninomiya-kun.jpg" />
+    <Content Include="image\Grisaia no Kajitsu - Le Fruit de la Grisaia.jpg" />
+    <Content Include="image\Guilty Crown.jpg" />
+    <Content Include="image\Gunslinger Stratos The Animation.jpg" />
+    <Content Include="image\Hagure Yuusha no Estetica.jpg" />
+    <Content Include="image\Hai to Gensou no Grimgar.jpg" />
+    <Content Include="image\Hakkenden Touhou Hakken Ibun.jpg" />
+    <Content Include="image\Hakuouki.jpg" />
+    <Content Include="image\HAND SHAKERS.jpg" />
+    <Content Include="image\HaruChika  Haruta to Chika wa Seishun Suru.jpg" />
+    <Content Include="image\Hataraku Maou-Sama.jpg" />
+    <Content Include="image\Heavy Object.jpg" />
+    <Content Include="image\Hentai Ouji to Warawanai Neko.jpg" />
+    <Content Include="image\Hidan No Aria.jpg" />
+    <Content Include="image\High School DxD.jpg" />
+    <Content Include="image\High School of The Dead.jpg" />
+    <Content Include="image\High School Samurai.jpg" />
+    <Content Include="image\Hiiro no Kakera.jpg" />
+    <Content Include="image\Hitsugi no Chaika.jpg" />
+    <Content Include="image\Hoshizora E Kakaru Hashi.jpg" />
+    <Content Include="image\Hundred.jpg" />
+    <Content Include="image\Hunter x Hunter.jpg" />
+    <Content Include="image\Hyakka Ryouran Samurai Bride.jpg" />
+    <Content Include="image\Ichiban Ushiro No Daimaou.jpg" />
+    <Content Include="image\Ikkitousen.jpg" />
+    <Content Include="image\ImoCho.jpg" />
+    <Content Include="image\Infinite Stratos.jpg" />
+    <Content Include="image\Inou Battle wa Nichijou-kei no Naka de.jpg" />
+    <Content Include="image\Inu To Hasami Wa Tsukaiyou.jpg" />
+    <Content Include="image\Isuca.jpg" />
+    <Content Include="image\Itsuka Tenma no Kuro Usagi.jpg" />
+    <Content Include="image\Ixion Saga DT.jpg" />
+    <Content Include="image\Jitsu wa Watashi wa.jpg" />
+    <Content Include="image\Jojou Senjin!! Mushibugyo.JPG" />
+    <Content Include="image\Joker Game.jpg" />
+    <Content Include="image\Junketsu no Maria.jpg" />
+    <Content Include="image\Juuou Mujin no Fafnir.jpg" />
+    <Content Include="image\K Project.jpg" />
+    <Content Include="image\Kaichou Wa Maid Sama.jpg" />
+    <Content Include="image\Kamisama no Inai Nichiyoubi.jpg" />
+    <Content Include="image\Kanojo ga Flag o Oraretara.jpg" />
+    <Content Include="image\Kanokon.jpg" />
+    <Content Include="image\Kantai Collection Kan Colle.jpg" />
+    <Content Include="image\Karneval.jpg" />
+    <Content Include="image\Kaze no Stigma.jpg" />
+    <Content Include="image\Keijo.jpg" />
+    <Content Include="image\Kekkai Sensen.jpg" />
+    <Content Include="image\Kill la Kill.jpg" />
+    <Content Include="image\Kimi ga Aruji de Shitsuji ga Ore de.jpg" />
+    <Content Include="image\Kimi No Iru Machi.jpg" />
+    <Content Include="image\Kiseijuu  Sei no Kakuritsu.jpg" />
+    <Content Include="image\Kiss x Sis.jpg" />
+    <Content Include="image\Kodomo no Jikan.jpg" />
+    <Content Include="image\Koe de Oshigoto.jpg" />
+    <Content Include="image\Koi to senkyo to Chocolate.jpg" />
+    <Content Include="image\Koihime Muso.jpg" />
+    <Content Include="image\Kono naka ni hitori, imouto ga iru!.jpg" />
+    <Content Include="image\Kono Subarashii Sekai ni Shukufuku wo!.jpg" />
+    <Content Include="image\Kore Wa Zombie Desu Ka.jpg" />
+    <Content Include="image\Koukaku no Regios.jpg" />
+    <Content Include="image\Koutetsu Sangokushi.jpg" />
+    <Content Include="image\Koutetsujou no Kabaneri.jpg" />
+    <Content Include="image\Koyomimonogatari.jpg" />
+    <Content Include="image\Kuromukuro.jpg" />
+    <Content Include="image\Kuusen Madoushi Kouhosei no Kyoukan.jpg" />
+    <Content Include="image\Kyoukai No Kanata.jpg" />
+    <Content Include="image\Kyoukai Senjou no Horizon.jpg" />
+    <Content Include="image\Kämpfer.jpg" />
+    <Content Include="image\L%27Attaque des Titans.jpg" />
+    <Content Include="image\La Fille Des Enfers.jpg" />
+    <Content Include="image\Linebarrels Of Iron.jpg" />
+    <Content Include="image\Lostorage Incited WIXOSS.jpg" />
+    <Content Include="image\Love Live! School Idol Project.jpg" />
+    <Content Include="image\Luck and Logic.jpg" />
+    <Content Include="image\Maburaho.jpg" />
+    <Content Include="image\Machine Doll Wa Kizutsukanai.jpg" />
+    <Content Include="image\Macross Delta.jpg" />
+    <Content Include="image\Madan no O to Vanadis.jpg" />
+    <Content Include="image\Mahou Sensou.jpg" />
+    <Content Include="image\Maji de Watashi ni Koi Shinasai!!.jpg" />
+    <Content Include="image\Makai Ouji Devils and Realist.jpg" />
+    <Content Include="image\Maken-Ki.jpg" />
+    <Content Include="image\Maoyuu Maou Yuusha.jpg" />
+    <Content Include="image\Masou Gakuen HxH.jpg" />
+    <Content Include="image\Mayo Chiki!.jpg" />
+    <Content Include="image\Medaka Box.jpg" />
+    <Content Include="image\Mikagura Gakuen Kumikyoku.jpg" />
+    <Content Include="image\Mirai Nikki.jpg" />
+    <Content Include="image\MM!.jpg" />
+    <Content Include="image\Mobile Suit Gundam Tekketsu no Orphans.jpg" />
+    <Content Include="image\Momo Kyun Sword.jpg" />
+    <Content Include="image\Moretsu Uchu Kaizoku.jpg" />
+    <Content Include="image\Musaigen no Phantom World.jpg" />
+    <Content Include="image\Muv-Luv Alternative.jpg" />
+    <Content Include="image\Nagi no Asukara.jpg" />
+    <Content Include="image\Naruto.jpg" />
+    <Content Include="image\Nazo no Kanojo X.jpg" />
+    <Content Include="image\Nejimaki Seirei Senki  Tenkyou no Alderamin.jpg" />
+    <Content Include="image\Netgame no Yome wa Onnanoko ja Nai to Omotta.jpg" />
+    <Content Include="image\Night Wizard.jpg" />
+    <Content Include="image\Nisekoi.jpg" />
+    <Content Include="image\No Game, No Life.jpg" />
+    <Content Include="image\Nobunaga The Fool.jpg" />
+    <Content Include="image\Noein Mou Hitori no Kimi e.jpg" />
+    <Content Include="image\Noragami.jpg" />
+    <Content Include="image\NORN9.jpg" />
+    <Content Include="image\Nurarihyon No Mago.jpg" />
+    <Content Include="image\Oda Nobuna No Yabou.jpg" />
+    <Content Include="image\Okusama ga Seito Kaichou!.jpg" />
+    <Content Include="image\Omamori Himari.jpg" />
+    <Content Include="image\One Piece.jpg" />
+    <Content Include="image\One Punch-Man.jpg" />
+    <Content Include="image\Onii-chan Dakedo Ai Sae Areba Kankeinai yo ne!.jpg" />
+    <Content Include="image\Onsen Yousei Hakone-chan.jpg" />
+    <Content Include="image\Ookami Kakushi.jpg" />
+    <Content Include="image\Ookami Shoujo to Kuro Ouji.jpg" />
+    <Content Include="image\Ookami-san to Shichinin no Nakama-tachi.jpg" />
+    <Content Include="image\ore ga ojousama gakkou ni shomin sample.jpg" />
+    <Content Include="image\Ore no Imouto ga Konnani Kawaii Wake ga Nai.jpg" />
+    <Content Include="image\Ore, Twin Tails ni Narimasu.jpg" />
+    <Content Include="image\Ore-tachi ni Tsubasa wa Nai.jpg" />
+    <Content Include="image\Outbreak Company.jpg" />
+    <Content Include="image\Over Lord.jpg" />
+    <Content Include="image\Owari no Seraph.jpg" />
+    <Content Include="image\Owarimonogatari.jpg" />
+    <Content Include="image\Pandora Hear.jpg" />
+    <Content Include="image\Papa no Iukoto wo Kikinasai!.jpg" />
+    <Content Include="image\Phantasy Star Online 2  The Animation.jpg" />
+    <Content Include="image\Phantom Requiem For The Phantom.jpg" />
+    <Content Include="image\Phi Brain Kami No Puzzle.jpg" />
+    <Content Include="image\Plastic Memories.jpg" />
+    <Content Include="image\Prince of Stride Alternative.jpg" />
+    <Content Include="image\Princess Lover.jpg" />
+    <Content Include="image\Prison School.jpg" />
+    <Content Include="image\Psycho - Pass.jpg" />
+    <Content Include="image\Qualidea Code.jpg" />
+    <Content Include="image\Queen%27s Blade.jpg" />
+    <Content Include="image\R-15.jpg" />
+    <Content Include="image\Rail Wars!.jpg" />
+    <Content Include="image\Rakudai Kishi no Cavalry.jpg" />
+    <Content Include="image\Rampo Kitan Game of Laplace.jpg" />
+    <Content Include="image\Re Zero kara Hajimeru Isekai Seikatsu.jpg" />
+    <Content Include="image\Reikenzan Hoshikuzu-tachi no Utage.jpg" />
+    <Content Include="image\ReLIFE.jpg" />
+    <Content Include="image\Rental Magica.jpg" />
+    <Content Include="image\Rewrite.jpg" />
+    <Content Include="image\Rokka no Yuusha.jpg" />
+    <Content Include="image\Rosario Vampire.jpg" />
+    <Content Include="image\Rozen Maiden.jpg" />
+    <Content Include="image\RWBY.jpg" />
+    <Content Include="image\Sacred Seven.jpg" />
+    <Content Include="image\Saijaku Muhai no Bahamut.jpg" />
+    <Content Include="image\Sakura Card Captor.jpg" />
+    <Content Include="image\Sakura Trick.jpg" />
+    <Content Include="image\Sakurako-san no Ashimoto ni wa Shitai ga Umatteiru.jpg" />
+    <Content Include="image\Sakurasou no Pet na Kanojo.jpg" />
+    <Content Include="image\Sankarea.jpg" />
+    <Content Include="image\Sasami-san%40ganbaranai.jpg" />
+    <Content Include="image\School Days.jpg" />
+    <Content Include="image\Schwarzesmarken.jpg" />
+    <Content Include="image\Seiken Tsukai no World Break.jpg" />
+    <Content Include="image\Seikoku no Dragonar.jpg" />
+    <Content Include="image\Seikon No Qwaser.jpg" />
+    <Content Include="image\Seirei Tsukai no Blade Dance.jpg" />
+    <Content Include="image\Seisen Cerberus Ryuu Koku no Fatalite.jpg" />
+    <Content Include="image\Seitokai no Ichizon.jpg" />
+    <Content Include="image\Sekirei.jpg" />
+    <Content Include="image\Senki Zesshou Symphogear.jpg" />
+    <Content Include="image\Senran Kagura.jpg" />
+    <Content Include="image\Servamp.jpg" />
+    <Content Include="image\Shakugan No Shana.jpg" />
+    <Content Include="image\Shaman King.jpg" />
+    <Content Include="image\Shangri-La.jpg" />
+    <Content Include="image\Shigatsu wa Kimi no Uso.jpg" />
+    <Content Include="image\Shimoneta to iu Gainen.jpg" />
+    <Content Include="image\Shingetsutan Tsukihime.jpg" />
+    <Content Include="image\Shining Hearts Shiawase no Pan.jpg" />
+    <Content Include="image\Shinmai Maou no Testament.jpg" />
+    <Content Include="image\Shinsekai Yori.jpg" />
+    <Content Include="image\Shokugeki no Souma.jpg" />
+    <Content Include="image\Shoujo-tachi wa Kouya wo Mezasu.jpg" />
+    <Content Include="image\Shounen Maid.jpg" />
+    <Content Include="image\Shuffle !.jpg" />
+    <Content Include="image\Shukufuku no campanella.jpg" />
+    <Content Include="image\Shuumatsu no Izetta.jpg" />
+    <Content Include="image\Sky Girls.jpg" />
+    <Content Include="image\Sora No Otoshimono.jpg" />
+    <Content Include="image\Soul Eater.jpg" />
+    <Content Include="image\Soul Link.jpg" />
+    <Content Include="image\Sousei No Aquarion.jpg" />
+    <Content Include="image\Sousei no Onmyouji.jpg" />
+    <Content Include="image\Spirit Pact.jpg" />
+    <Content Include="image\Star Driver Kagayaki no Takuto.jpg" />
+    <Content Include="image\Strike The Blood.jpg" />
+    <Content Include="image\Suisei No Gargantia.jpg" />
+    <Content Include="image\Sword Art Online.jpg" />
+    <Content Include="image\Taboo Tattoo.jpg" />
+    <Content Include="image\Tales of Zestiria the X.jpg" />
+    <Content Include="image\Tasogare Otome x Amnesia.jpg" />
+    <Content Include="image\Tears to Tiara.jpg" />
+    <Content Include="image\The Book of Bantorra.jpg" />
+    <Content Include="image\The irregular at magic high school.jpg" />
+    <Content Include="image\The Sacred Blacksmith.jpg" />
+    <Content Include="image\To Love Ru Motto.jpg" />
+    <Content Include="image\Tokyo ESP.jpg" />
+    <Content Include="image\Tokyo Ghoul.jpg" />
+    <Content Include="image\Tokyo Ravens.jpg" />
+    <Content Include="image\Triage X.jpg" />
+    <Content Include="image\Trinity Seven - 7 Nin no Mahotsukai.jpg" />
+    <Content Include="image\Umineko No Naku Koro Ni.jpg" />
+    <Content Include="image\Upotte!!.jpg" />
+    <Content Include="image\USHINAWARETA MIRAI O MOTOMETE.jpg" />
+    <Content Include="image\Uta no Prince-sama Maji Love 1000.jpg" />
+    <Content Include="image\Utawarerumono  Itsuwari no Kamen.jpg" />
+    <Content Include="image\Valkyrie Drive  Mermaid.jpg" />
+    <Content Include="image\ViVid Strike!.jpg" />
+    <Content Include="image\Wagamama High Spec.jpg" />
+    <Content Include="image\Walkure Romanze.jpg" />
+    <Content Include="image\Watashi Ga Motenai No Wa Dou Kangaetemo Omaera Ga Warui.jpg" />
+    <Content Include="image\Witch Craft Works.jpg" />
+    <Content Include="image\Witchblade.jpg" />
+    <Content Include="image\World Destruction  Sekai Bokumetsu no Rokunin.jpg" />
+    <Content Include="image\World Trigger.jpg" />
+    <Content Include="image\Yahari Ore no Seishun Love Comedy wa Machigatteiru.jpg" />
+    <Content Include="image\Yamada-kun to 7 Nin no Majo.jpg" />
+    <Content Include="image\Yosuga No Sora.jpg" />
+    <Content Include="image\Yugioh.jpg" />
+    <Content Include="image\Yumekui Merry.jpg" />
+    <Content Include="image\Zero No Tsukaima.jpg" />
+    <Content Include="image\Zetman.jpg" />
+    <Content Include="image\Zetsuen No Tempest.jpg" />
+    <Content Include="image\Zettai Bouei Leviathan.jpg" />
+    <Content Include="image\Zettai Karen Children The Unlimited.jpg" />
+    <Content Include="image\Zombie Loan.jpg" />
+    <Content Include="image\ZX Ignition.jpg" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Liste\Index.cshtml" />
+    <Content Include="Views\Liste\ButtonPressed.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Genres.cshtml" />
+    <Content Include="Views\Steaming\Streaming.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{c3b2f1a6-db48-424c-9111-47265b5ac8ac}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49386</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49386/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

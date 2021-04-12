@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MangaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Anime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="60" />
+          <Property Name="Genres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Synopsis" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="Motif" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="Episode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_Animes" Type="int" Nullable="false" />
+          <Property Name="Num_Episode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lien" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Episode_ToTable">
+          <End Role="Anime" Type="Self.Anime" Multiplicity="1" />
+          <End Role="Episode" Type="Self.Episode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anime">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Episode">
+              <PropertyRef Name="Id_Animes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MangaModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Anime" EntityType="Self.Anime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Episode" EntityType="Self.Episode" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Episode_ToTable" Association="Self.FK_Episode_ToTable">
+            <End Role="Anime" EntitySet="Anime" />
+            <End Role="Episode" EntitySet="Episode" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MangaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Animes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Genres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Synopsis" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Motif" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Episode" Relationship="Self.FK_Episode_ToTable" FromRole="Anime" ToRole="Episode" />
+          <Property Name="Image" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Episode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_Animes" Type="Int32" Nullable="false" />
+          <Property Name="Num_Episode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Anime" Relationship="Self.FK_Episode_ToTable" FromRole="Episode" ToRole="Anime" />
+        </EntityType>
+        <Association Name="FK_Episode_ToTable">
+          <End Role="Anime" Type="MangaModel.Animes" Multiplicity="1" />
+          <End Role="Episode" Type="Self.Episode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anime">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Episode">
+              <PropertyRef Name="Id_Animes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MangaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+          <EntitySet Name="Anime" EntityType="MangaModel.Animes" />
+          <EntitySet Name="Episode" EntityType="Self.Episode" />
+          <AssociationSet Name="FK_Episode_ToTable" Association="Self.FK_Episode_ToTable">
+            <End Role="Anime" EntitySet="Anime" />
+            <End Role="Episode" EntitySet="Episode" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MangaModelStoreContainer" CdmEntityContainer="MangaEntities">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="MangaModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Anime">
+            <EntityTypeMapping TypeName="MangaModel.Animes">
+              <MappingFragment StoreEntitySet="Anime">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Genres" ColumnName="Genres" />
+                <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
+                <ScalarProperty Name="Motif" ColumnName="Motif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Episode">
+            <EntityTypeMapping TypeName="MangaModel.Episode">
+              <MappingFragment StoreEntitySet="Episode">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Animes" ColumnName="Id_Animes" />
+                <ScalarProperty Name="Num_Episode" ColumnName="Num_Episode" />
+                <ScalarProperty Name="lien" ColumnName="lien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="f513449215b54477be4b30f87856f6dd" Name="Diagram1">
+        <EntityTypeShape EntityType="MangaModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MangaModel.Animes" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MangaModel.Episode" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="MangaModel.FK_Episode_ToTable" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,25 @@
+﻿@model Otaku_Amines.Models.ListeViewModels
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>@Html.ActionLink("liste des animes", "Index", "Liste")  </h1>
+<h1 class="text-center">animes en cours</h1>
+
+
+<div class="row">
+    @foreach (var items in Model.ListAnimes)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <img src="~/image/@items.Image" class="card-img-top anime">
+                <div class="card-body">
+                    <h5 class="card-title">@items.Nom</h5>
+                    
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

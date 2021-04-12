@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using DAL;
+<h1>@Html.ActionLink("liste des animes", "Index", "Liste")  </h1>
+<h1 class="text-center">animes en cours</h1>
+
+@{  string Search = "En Cours";
+
+    var result1 = (from Ta in (ViewData["data"] as List<Animes>)
+                   where Ta.Motif.ToLower().Contains(Search.ToLower())
+                   orderby Ta.Nom
+                   select Ta).Take(5);
+
+    <table class="table">       
+        <tr>
+            @foreach (var items in result1)
+            {
+                <td>
+                    <img class="anime" src="~/image/@items.Image" /><div>@items.Nom</div>
+                </td>
+            }
+        </tr>
+    </table>
+
+    var result2 =( from Ta in (ViewData["data"] as List<Animes>)
+                   where  Ta.Motif.ToLower().Contains(Search.ToLower()) 
+                   orderby Ta.Nom
+                   select Ta).Take(10).Except(result1);
+
+<table class="table">
+    <tr>
+        @foreach (var items in result2)
+        {
+            <td>
+                <img class="anime" src="~/image/@items.Image" /><div>@items.Nom</div>
+            </td>
+        }
+    </tr>
+</table>
+    var result3 = (from Ta in (ViewData["data"] as List<Animes>)
+                   where Ta.Motif.ToLower().Contains(Search.ToLower())
+                   orderby Ta.Nom
+                   select Ta).Take(15).Except(result1).Except(result2);
+
+    <table class="table">
+        <tr>
+            @foreach (var items in result3)
+            {
+               <td>
+
+                    <img class="anime" src="~/image/@items.Image" /><div>@items.Nom</div>
+                </td>
+            }
+        </tr>
+    </table>
+    var result4 = (from Ta in (ViewData["data"] as List<Animes>)
+                   where Ta.Motif.ToLower().Contains(Search.ToLower())
+                   orderby Ta.Nom
+                   select Ta).Take(20).Except(result1).Except(result2).Except(result3);
+
+    <table class="table">
+        <tr>
+            @foreach (var items in result4)
+            {
+               <td>
+                    <img class="anime" src="~/image/@items.Image" /><div>@items.Nom</div>
+                </td>
+            }
+        </tr>
+    </table>
+}
+
+
+
